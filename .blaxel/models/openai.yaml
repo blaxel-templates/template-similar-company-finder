@@ -1,0 +1,20 @@
+apiVersion: blaxel.ai/v1alpha1
+kind: IntegrationConnection
+metadata:
+  name: openai-integration
+spec:
+  integration: openai
+  secret:
+    apiKey: ${OPENAI_API_KEY}
+---
+apiVersion: blaxel.ai/v1alpha1
+kind: Model
+metadata:
+  name: gpt-4o-mini
+  displayName: GPT 4o Mini
+spec:
+  integrationConnections:
+    - openai-integration
+  runtime:
+    model: gpt-4o-mini
+    type: openai

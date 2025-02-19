@@ -1,0 +1,11 @@
+apiVersion: blaxel.ai/v1alpha1
+kind: Function
+metadata:
+  displayName: gmail
+  name: gmail
+spec:
+  description: Gmail tools
+  integrationConnections:
+    - ${secrets.GMAIL_INTEGRATION_NAME}
+  runtime:
+    type: mcp

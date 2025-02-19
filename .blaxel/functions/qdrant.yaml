@@ -1,0 +1,36 @@
+apiVersion: blaxel.ai/v1alpha1
+kind: IntegrationConnection
+metadata:
+  name: qdrant-integration
+spec:
+  integration: qdrant
+  config:
+    url: ${secrets.QDRANT_URL}
+    collectionName: ${secrets.QDRANT_COLLECTION_NAME}
+    embeddingModel: embedding-model-openai
+  secret:
+    apiKey: ${secrets.QDRANT_API_KEY}
+---
+apiVersion: blaxel.ai/v1alpha1
+kind: Function
+metadata:
+  displayName: qdrant
+  name: qdrant
+spec:
+  description: Qdrant tools
+  integrationConnections:
+    - qdrant-integration
+  runtime:
+    type: mcp
+---
+apiVersion: blaxel.ai/v1alpha1
+kind: Model
+metadata:
+  name: embedding-model-openai
+  displayName: Embedding Model OpenAI
+spec:
+  integrationConnections:
+    - openai-integration
+  runtime:
+    model: text-embedding-3-large
+    type: openai

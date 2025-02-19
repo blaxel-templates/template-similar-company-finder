@@ -1,0 +1,16 @@
+apiVersion: blaxel.ai/v1alpha1
+kind: IntegrationConnection
+metadata:
+  name: exa-integration
+spec:
+  integration: exa
+  secret:
+    exaApiKey: ${secrets.EXA_API_KEY}
+---
+apiVersion: blaxel.ai/v1alpha1
+kind: Function
+metadata:
+  name: exa
+spec:
+  integrationConnections:
+  - exa-integration
