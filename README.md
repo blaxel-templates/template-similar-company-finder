@@ -2,6 +2,10 @@
 
 This repository is a demo implementation of a Find Similar Companies agent built using the [Blaxel SDK](https://blaxel.ai) and [LangChain](https://langchain.com). The agent analyzes companies and finds similar ones by leveraging AI, processing HTTP requests, and enriching conversational context with data stored in a Qdrant-based knowledge base. Once the analysis is complete, the agent automatically generates and sends detailed comparison reports via email.
 
+<p align="center">
+  <img src="./assets/illustration.jpeg" width="600" alt="Find Similar Companies Agent">
+</p>
+
 ## 🚀 Prerequisites
 
 - **Node.js:** v20 or later
