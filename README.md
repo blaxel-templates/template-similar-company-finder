@@ -32,11 +32,20 @@ This repository is a demo implementation of a Find Similar Companies agent built
    cp .env-sample .env
    ```
    Update the following in your `.env`:
-   - Qdrant configuration: `QDRANT_URL`, `QDRANT_API_KEY`, `QDRANT_COLLECTION_NAME`
-   - OpenAI API key: `OPENAI_API_KEY`
-   - Exa API key: `EXA_API_KEY`
-   - Gmail Integration Name: `GMAIL_INTEGRATION_NAME`
-
+   - Qdrant configuration:
+     - Sign up for a free account at [Qdrant Cloud](https://cloud.qdrant.io/)
+     - Create a new cluster and copy your `QDRANT_URL`
+     - Generate an API key from your cluster settings for `QDRANT_API_KEY`
+     - Choose a name for your collection (`QDRANT_COLLECTION_NAME`)
+   - OpenAI API key:
+     - Sign up at [OpenAI Platform](https://platform.openai.com/)
+     - Navigate to API keys section
+     - Create a new API key for `OPENAI_API_KEY`
+   - Exa API key:
+     - Visit [Exa.ai](https://exa.ai)
+     - Create an account and subscribe to a plan
+     - Generate an API key from your dashboard for `EXA_API_KEY`
+   - Gmail Integration Name: Set `GMAIL_INTEGRATION_NAME` to match the name you used in step 2
 
 4. Register your Blaxel components:
    ```bash
