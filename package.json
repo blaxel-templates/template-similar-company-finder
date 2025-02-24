@@ -12,7 +12,7 @@
   "author": "mjoffre",
   "license": "MIT",
   "dependencies": {
-    "@blaxel/sdk": "^0.0.67",
+    "@blaxel/sdk": "^0.0.68",
     "@langchain/anthropic": "^0.3.12",
     "@langchain/cohere": "^0.3.2",
     "@langchain/deepseek": "^0.0.1",
