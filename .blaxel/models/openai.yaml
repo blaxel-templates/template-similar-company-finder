@@ -5,7 +5,7 @@ metadata:
 spec:
   integration: openai
   secret:
-    apiKey: ${OPENAI_API_KEY}
+    apiKey: ${secrets.OPENAI_API_KEY}
 ---
 apiVersion: blaxel.ai/v1alpha1
 kind: Model
