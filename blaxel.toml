@@ -1,0 +1,4 @@
+type = "agent"
+
+functions = ["exa", "gmail", "qdrant"]
+models = ["sandbox-openai"]
