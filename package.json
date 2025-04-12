@@ -13,7 +13,7 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@blaxel/sdk": "0.1.6",
+    "@blaxel/sdk": "0.1.8",
     "@langchain/core": "^0.3.43",
     "@langchain/langgraph": "^0.2.62",
     "fastify": "^5.2.2",
