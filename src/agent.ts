@@ -1,5 +1,3 @@
-
-
 import { blModel, blTools } from "@blaxel/sdk";
 import { HumanMessage } from "@langchain/core/messages";
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
@@ -10,24 +8,26 @@ interface Stream {
   end: () => void;
 }
 
-export default async function agent(input: string, stream: Stream): Promise<void> {
-  const prompt = fs.readFileSync('./src/prompt.md', 'utf8');
+export default async function agent(
+  input: string,
+  stream: Stream
+): Promise<void> {
+  const prompt = fs.readFileSync("./src/prompt.md", "utf8");
   const platformTools = await blTools(["exa", "gmail", "qdrant"]).ToLangChain();
   const model = await blModel("gpt-4o-mini").ToLangChain();
   const streamResponse = await createReactAgent({
     llm: await model,
-    tools: [
-      ...await platformTools,
-    ],
+    tools: [...(await platformTools)],
     prompt,
   }).stream({
     messages: [new HumanMessage(input)],
   });
 
   for await (const chunk of streamResponse) {
-    if(chunk.agent) for(const message of chunk.agent.messages) {
-      stream.write(message.content)
-    }
+    if (chunk.agent)
+      for (const message of chunk.agent.messages) {
+        stream.write(message.content);
+      }
   }
   stream.end();
 }
