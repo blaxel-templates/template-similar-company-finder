@@ -13,7 +13,7 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@blaxel/sdk": "0.1.11",
+    "@blaxel/sdk": "0.1.15",
     "@langchain/core": "^0.3.43",
     "@langchain/langgraph": "^0.2.62",
     "@opentelemetry/instrumentation-fastify": "^0.45.0",
