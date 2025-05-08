@@ -1,4 +1,4 @@
-import { blModel, blTools } from "@blaxel/sdk";
+import { blModel, blTools } from "@blaxel/langgraph";
 import { HumanMessage } from "@langchain/core/messages";
 import { createReactAgent } from "@langchain/langgraph/prebuilt";
 import fs from "fs";
@@ -13,8 +13,8 @@ export default async function agent(
   stream: Stream
 ): Promise<void> {
   const prompt = fs.readFileSync("./src/prompt.md", "utf8");
-  const platformTools = await blTools(["exa", "gmail", "qdrant"]).ToLangChain();
-  const model = await blModel("gpt-4o-mini").ToLangChain();
+  const platformTools = await blTools(["exa", "gmail", "qdrant"]);
+  const model = await blModel("gpt-4o-mini");
   const streamResponse = await createReactAgent({
     llm: await model,
     tools: [...(await platformTools)],
