@@ -15,5 +15,7 @@ jobs:
       repository: ${{ github.repository }}
       sha: ${{ github.sha }}
     secrets:
-      BL_ADMIN_USERNAME: ${{ secrets.BL_ADMIN_USERNAME }}
-      BL_ADMIN_PASSWORD: ${{ secrets.BL_ADMIN_PASSWORD }}
+      BL_ADMIN_USERNAME_DEV: ${{ secrets.BL_ADMIN_USERNAME_DEV }}
+      BL_ADMIN_PASSWORD_DEV: ${{ secrets.BL_ADMIN_PASSWORD_DEV }}
+      BL_ADMIN_USERNAME_PROD: ${{ secrets.BL_ADMIN_USERNAME_PROD }}
+      BL_ADMIN_PASSWORD_PROD: ${{ secrets.BL_ADMIN_PASSWORD_PROD }}
