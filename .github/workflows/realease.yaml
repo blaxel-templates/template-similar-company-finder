@@ -1,0 +1,19 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - "main"
+      - "develop"
+  workflow_dispatch:
+
+jobs:
+  release:
+    uses: blaxel-templates/workflows/.github/workflows/release.yaml@main
+    with:
+      environment: ${{ github.ref_name == 'main' && 'prod' || 'dev' }}
+      repository: ${{ github.repository }}
+      sha: ${{ github.sha }}
+    secrets:
+      BL_ADMIN_USERNAME: ${{ secrets.BL_ADMIN_USERNAME }}
+      BL_ADMIN_PASSWORD: ${{ secrets.BL_ADMIN_PASSWORD }}
