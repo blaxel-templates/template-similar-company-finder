@@ -9,6 +9,7 @@ on:
 
 jobs:
   release:
+    if: ${{ github.repository_owner == 'blaxel-templates' }}
     uses: blaxel-templates/workflows/.github/workflows/release.yaml@main
     with:
       environment: ${{ github.ref_name == 'main' && 'prod' || 'dev' }}
