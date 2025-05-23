@@ -14,9 +14,9 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@blaxel/core": "0.2.7",
-    "@blaxel/langgraph": "0.2.7",
-    "@blaxel/telemetry": "0.2.7",
+    "@blaxel/core": "0.2.13",
+    "@blaxel/langgraph": "0.2.13",
+    "@blaxel/telemetry": "0.2.13",
     "@langchain/core": "^0.3.51",
     "@langchain/langgraph": "^0.2.68",
     "@opentelemetry/instrumentation-fastify": "^0.45.0",
