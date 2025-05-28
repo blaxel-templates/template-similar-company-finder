@@ -42,4 +42,4 @@ If you encounter issues with the development container:
 1. Rebuild the container using the command palette: "Remote-Containers: Rebuild Container"
 2. Check that Docker is running properly on your system
 3. Verify your VS Code Remote - Containers extension is up to date
-4. If Blaxel CLI commands fail, try reinstalling with: `curl -fsSL https://raw.githubusercontent.com/beamlit/toolkit/main/install.sh | BINDIR=~/.local/bin sh`
+4. If Blaxel CLI commands fail, try reinstalling with: `curl -fsSL https://raw.githubusercontent.com/blaxel-ai/toolkit/main/install.sh | BINDIR=~/.local/bin sh`

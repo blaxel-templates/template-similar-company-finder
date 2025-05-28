@@ -19,7 +19,7 @@
       }
     }
   },
-  "postCreateCommand": "curl -fsSL https://raw.githubusercontent.com/beamlit/toolkit/main/install.sh | BINDIR=~/.local/bin sh && npm install -g typescript ts-node && npm install",
+  "postCreateCommand": "curl -fsSL https://raw.githubusercontent.com/blaxel-ai/toolkit/main/install.sh | BINDIR=~/.local/bin sh && npm install -g typescript ts-node && npm install",
   "remoteUser": "node",
   "forwardPorts": [1338],
   "remoteEnv": {
