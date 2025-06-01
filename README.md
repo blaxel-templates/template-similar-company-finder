@@ -1,132 +1,127 @@
 # 🔍 Find Similar Companies Agent
 
-This repository is a demo implementation of a Find Similar Companies agent built using the [Blaxel SDK](https://blaxel.ai) and [LangChain](https://langchain.com). The agent analyzes companies and finds similar ones by leveraging AI, processing HTTP requests, and enriching conversational context with data stored in a Qdrant-based knowledge base. Once the analysis is complete, the agent automatically generates and sends detailed comparison reports via email.
+[![Node.js >= 20](https://img.shields.io/badge/node-%3E%3D20-green)](https://nodejs.org/) [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
+This repository demonstrates a Find Similar Companies agent built with the [Blaxel SDK](https://blaxel.ai) and [LangChain](https://langchain.com). The agent analyzes a target company and finds comparable companies using AI, enriches results via a Qdrant vector database, and emails detailed reports.
 
 <p align="center">
   <img src="./assets/illustration.jpeg" width="600" alt="Find Similar Companies Agent">
 </p>
 
-## 🚀 Prerequisites
+## 📖 Table of Contents
 
-- **Node.js:** v20 or later
-- **Blaxel CLI:** Install globally:
-  ```bash
-  curl -fsSL https://raw.githubusercontent.com/blaxel/toolkit/main/install.sh | BINDIR=$HOME/.local/bin sh
-  ```
-- **Blaxel login:** Login to your workspace:
-  ```bash
-  bl login YOUR-WORKSPACE
-  ```
+- [Prerequisites](#-prerequisites)
+- [Installation](#-installation)
+- [Configuration](#-configuration)
+- [Usage](#-usage)
+- [Features](#-features)
+- [Development](#-development)
+- [Example Prompts](#-example-prompts)
+- [Deployment](#-deployment)
+- [Project Structure](#-project-structure)
+- [Contributing](#-contributing)
+- [License](#-license)
 
-## ⚙️ Installation
+## 🎯 Prerequisites
 
-1. Clone and install dependencies:
-   ```bash
-   git clone https://github.com/your-repo/similar-company-finder.git
-   cd similar-company-finder
-   npm install
-   ```
+- Node.js >= 20
+- [Blaxel CLI](https://docs.blaxel.ai/cli) installed globally
+- Blaxel workspace access
 
-2. Set up Gmail Integration:
-   - Follow the setup guide at [Blaxel Gmail Integration](https://docs.blaxel.ai/Integrations/Gmail)
-   - Sign in to your Google account to create the Gmail integration in your workspace settings
+## 🚀 Installation
 
-3. Configure environment variables:
+```bash
+git clone https://github.com/blaxel-templates/similar-company-finder.git
+cd similar-company-finder
+npm install
+```
+
+## ⚙️ Configuration
+
+1. Set up Gmail Integration:
+   - Follow the guide: [Blaxel Gmail Integration](https://docs.blaxel.ai/Integrations/Gmail)
+   - Sign in to Google and register the integration in your workspace.
+2. Copy and edit environment variables:
    ```bash
    cp .env-sample .env
    ```
-   Update the following in your `.env`:
-   - Qdrant configuration:
-     - Sign up for a free account at [Qdrant Cloud](https://cloud.qdrant.io/)
-     - Create a new cluster and copy your `QDRANT_URL`
-     - Generate an API key from your cluster settings for `QDRANT_API_KEY`
-     - Choose a name for your collection (`QDRANT_COLLECTION_NAME`)
-   - OpenAI API key:
-     - Sign up at [OpenAI Platform](https://platform.openai.com/)
-     - Navigate to API keys section
-     - Create a new API key for `OPENAI_API_KEY`
-   - Exa API key:
-     - Visit [Exa.ai](https://exa.ai)
-     - Create an account and subscribe to a plan
-     - Generate an API key from your dashboard for `EXA_API_KEY`
-   - Gmail Integration Name: Set `GMAIL_INTEGRATION_NAME` to match the name you used in step 2
+   Update `.env` with:
+   - `QDRANT_URL`, `QDRANT_API_KEY`, `QDRANT_COLLECTION_NAME`
+   - `OPENAI_API_KEY`
+   - `EXA_API_KEY`
+   - `GMAIL_INTEGRATION_NAME`
 
-4. Register your Blaxel components:
+3. Register Blaxel components:
    ```bash
    bl apply -R -f .blaxel
    ```
 
-## ✨ Features
+## 💡 Usage
 
-- 🤖 Company similarity analysis using advanced AI models
-- 🗄️ Integration with Qdrant vector database for knowledge storage
-- 🔎 Real-time company research via Exa
-- 📧 Automated email delivery of detailed comparison reports
-- 📊 Comprehensive comparison across multiple dimensions:
+Start the agent locally and chat:
+
+```bash
+bl serve --hotreload
+bl chat similar-company-finder --local
+```
+
+## 🎨 Features
+
+- Company similarity analysis with AI models
+- Qdrant vector database for context storage
+- Real-time research via Exa.ai
+- Automated email delivery of comparison reports
+- Multi-dimensional comparison:
   - Market & Industry (25%)
   - Business Model (25%)
   - Financials (20%)
   - Product & Technology (15%)
   - Strategic Position (15%)
 
-## 💻 Development
+## 👩‍💻 Development
 
-Start the development server with hot reloading:
+Hot-reload server:
 
 ```bash
 bl serve --hotreload
 ```
 
-To test the agent, open a new terminal and run:
+## 📢 Example Prompts
 
-```bash
-bl chat similar-company-finder --local
+```txt
+Find companies similar to Stripe in the payment processing space and email me at me@domain.com
 ```
 
-This will open an interactive chat session with your local agent where you can test company similarity analysis.
+```txt
+Compare Airbnb with other travel and hospitality companies and email me at me@domain.com
+```
 
-## 🗣️ Example Prompts
-
-Here are some example prompts to get started with the agent:
-
-- ```
-  Find companies similar to Stripe in the payment processing space and send me an email back at myemail@domain.com
-  ```
-
-- ```
-  Compare Airbnb with other companies in the travel and hospitality sector and send me an email back at myemail@domain.com
-  ```
-
-- ```
-  What companies are similar to Tesla in terms of electric vehicles and sustainable energy? Please send me an email back at myemail@domain.com
-  ```
-
-- ```
-  Find B2B SaaS companies similar to Salesforce and send me an email back at myemail@domain.com
-  ```
-
-- ```
-  Can you analyze companies similar to Shopify in the e-commerce platform space and send me an email back at myemail@domain.com
-  ```
-
-Each analysis will generate a detailed comparison report that will be sent to your email, covering aspects like market position, business model, financials, and technology stack.
-
-## 🚀 Deployment
-
-Deploy to Blaxel:
+## ☁️ Deployment
 
 ```bash
 bl deploy
 ```
 
-## 📁 Project Structure
+## 📂 Project Structure
 
-- **src/**
-  - `agent.ts` - Main agent configuration and request handling
-- **.blaxel/**
-  - Configuration for functions, models, and integrations
-- **index.ts** - Application entry point
+```
+src/
+  └─ agent.ts      # Main agent config and handlers
+.blaxel/           # Blaxel functions, models, integrations
+index.ts          # Application entry point
+```
 
-## 📄 License
+## 🤝 Contributing
 
-MIT Licensed. See [LICENSE](LICENSE) for details.
+Contributions welcome! Please:
+
+1. Fork the repository.
+2. Create a branch: `git checkout -b feature/your-feature`.
+3. Commit your changes.
+4. Submit a pull request.
+
+See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for details.
+
+## 📜 License
+
+MIT © [Blaxel.ai](https://blaxel.ai)
