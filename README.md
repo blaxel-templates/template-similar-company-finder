@@ -1,132 +1,159 @@
-# 🔍 Find Similar Companies Agent
-
-This repository is a demo implementation of a Find Similar Companies agent built using the [Blaxel SDK](https://blaxel.ai) and [LangChain](https://langchain.com). The agent analyzes companies and finds similar ones by leveraging AI, processing HTTP requests, and enriching conversational context with data stored in a Qdrant-based knowledge base. Once the analysis is complete, the agent automatically generates and sends detailed comparison reports via email.
+# 🦢 Find Similar Companies Agent
 
 <p align="center">
   <img src="./assets/illustration.jpeg" width="600" alt="Find Similar Companies Agent">
 </p>
 
-## 🚀 Prerequisites
+<div align="center">
 
-- **Node.js:** v20 or later
-- **Blaxel CLI:** Install globally:
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js: >=20](https://img.shields.io/badge/Node.js-%3E%3D20-brightgreen.svg)](https://nodejs.org/)
+[![Blaxel CLI](https://img.shields.io/badge/Blaxel%20CLI-installed-blue.svg)](https://github.com/blaxel/toolkit)
+
+</div>
+
+This repository is a demo implementation of a Find Similar Companies agent built using the [Blaxel SDK](https://github.com/blaxel/toolkit) and [LangChain](https://github.com/langchain-ai/langchain). The agent analyzes companies and finds similar ones by leveraging AI, processing HTTP requests, and enriching conversational context with data stored in a Qdrant-based knowledge base. Once the analysis is complete, the agent automatically generates and sends detailed comparison reports via email.
+
+## Table of Contents
+
+- [Features](#features)
+- [Quick Start](#quick-start)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+- [Usage](#usage)
+- [API Reference](#api-reference)
+- [Examples](#examples)
+- [Development](#development)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [Support](#support)
+- [License](#license)
+
+## Features
+
+- Company similarity analysis using advanced AI models
+- Conversational context enrichment with Qdrant vector database
+- Automated report generation and email delivery via SendGrid
+- Integration with Blaxel SDK and LangChain
+- HTTP REST API endpoints for agent execution
+
+## Quick Start
+
+### Prerequisites
+
+- Node.js v20 or later
+- Blaxel CLI installed globally:
   ```bash
-  curl -fsSL https://raw.githubusercontent.com/blaxel/toolkit/main/install.sh | BINDIR=$HOME/.local/bin sh
+  npm install -g @blaxel/toolkit
   ```
-- **Blaxel login:** Login to your workspace:
+- Login to your Blaxel workspace:
   ```bash
-  bl login YOUR-WORKSPACE
+  blx login YOUR-WORKSPACE
   ```
 
-## ⚙️ Installation
+### Installation
 
-1. Clone and install dependencies:
+1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/similar-company-finder.git
-   cd similar-company-finder
+   git clone https://github.com/blaxel-templates/template-similar-company-finder.git
+   cd template-similar-company-finder
+   ```
+2. Install dependencies:
+   ```bash
    npm install
    ```
 
-2. Set up Gmail Integration:
-   - Follow the setup guide at [Blaxel Gmail Integration](https://docs.blaxel.ai/Integrations/Gmail)
-   - Sign in to your Google account to create the Gmail integration in your workspace settings
+### Configuration
 
-3. Configure environment variables:
+1. **Set up Gmail integration**:
+   - Follow the guide at [Blaxel Gmail Integration](https://docs.blaxel.ai/Integrations/Gmail).
+2. **Configure environment variables** in a `.env` file:
    ```bash
-   cp .env-sample .env
+   QDRANT_HOST=localhost
+   QDRANT_COLLECTION_NAME=similar_companies
+   OPENAI_API_KEY=your-openai-key
+   SENDGRID_API_KEY=your-sendgrid-key
    ```
-   Update the following in your `.env`:
-   - Qdrant configuration:
-     - Sign up for a free account at [Qdrant Cloud](https://cloud.qdrant.io/)
-     - Create a new cluster and copy your `QDRANT_URL`
-     - Generate an API key from your cluster settings for `QDRANT_API_KEY`
-     - Choose a name for your collection (`QDRANT_COLLECTION_NAME`)
-   - OpenAI API key:
-     - Sign up at [OpenAI Platform](https://platform.openai.com/)
-     - Navigate to API keys section
-     - Create a new API key for `OPENAI_API_KEY`
-   - Exa API key:
-     - Visit [Exa.ai](https://exa.ai)
-     - Create an account and subscribe to a plan
-     - Generate an API key from your dashboard for `EXA_API_KEY`
-   - Gmail Integration Name: Set `GMAIL_INTEGRATION_NAME` to match the name you used in step 2
-
-4. Register your Blaxel components:
+3. **Register Blaxel components**:
    ```bash
-   bl apply -R -f .blaxel
+   blx apply -R -f .blaxel
+   ```
+4. **Register Gmail integration**:
+   ```bash
+   blx register gmail YOUR_GMAIL_INTEGRATION_ID
+   ```
+5. **Register SendGrid integration**:
+   ```bash
+   blx register sendgrid YOUR_SENDGRID_INTEGRATION_ID
    ```
 
-## ✨ Features
+## Usage
 
-- 🤖 Company similarity analysis using advanced AI models
-- 🗄️ Integration with Qdrant vector database for knowledge storage
-- 🔎 Real-time company research via Exa
-- 📧 Automated email delivery of detailed comparison reports
-- 📊 Comprehensive comparison across multiple dimensions:
-  - Market & Industry (25%)
-  - Business Model (25%)
-  - Financials (20%)
-  - Product & Technology (15%)
-  - Strategic Position (15%)
-
-## 💻 Development
-
-Start the development server with hot reloading:
+Run the agent locally with hot reload:
 
 ```bash
-bl serve --hotreload
+blx serve --hotreload
 ```
 
-To test the agent, open a new terminal and run:
+## API Reference
+
+- **POST** `/agents/{agent_id}/run`: Execute the agent with provided input
+- **GET** `/agents/{agent_id}/info`: Retrieve agent capabilities and metadata
+
+## Examples
+
+Example request to find similar companies:
 
 ```bash
-bl chat similar-company-finder --local
+curl -X POST http://localhost:3000/agents/find-similar-company/run \
+  -H "Content-Type: application/json" \
+  -d '{"input": "Find companies similar to Stripe in payment processing"}'
 ```
 
-This will open an interactive chat session with your local agent where you can test company similarity analysis.
+## Development
 
-## 🗣️ Example Prompts
-
-Here are some example prompts to get started with the agent:
-
-- ```
-  Find companies similar to Stripe in the payment processing space and send me an email back at myemail@domain.com
-  ```
-
-- ```
-  Compare Airbnb with other companies in the travel and hospitality sector and send me an email back at myemail@domain.com
-  ```
-
-- ```
-  What companies are similar to Tesla in terms of electric vehicles and sustainable energy? Please send me an email back at myemail@domain.com
-  ```
-
-- ```
-  Find B2B SaaS companies similar to Salesforce and send me an email back at myemail@domain.com
-  ```
-
-- ```
-  Can you analyze companies similar to Shopify in the e-commerce platform space and send me an email back at myemail@domain.com
-  ```
-
-Each analysis will generate a detailed comparison report that will be sent to your email, covering aspects like market position, business model, financials, and technology stack.
-
-## 🚀 Deployment
-
-Deploy to Blaxel:
+Start the development server with hot reload:
 
 ```bash
-bl deploy
+blx serve --hotreload
 ```
 
-## 📁 Project Structure
+## Project Structure
 
-- **src/**
-  - `agent.ts` - Main agent configuration and request handling
-- **.blaxel/**
-  - Configuration for functions, models, and integrations
-- **index.ts** - Application entry point
+```
+assets/              # Illustrations and static assets
+.blaxel/             # Blaxel configuration files
+src/                 # Source code for agents, integrations, and utilities
+  agents/            # Agent definitions and request handlers
+  utils/             # Helper modules and services
+``` 
 
-## 📄 License
+## Contributing
 
-MIT Licensed. See [LICENSE](LICENSE) for details.
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch:
+   ```bash
+   git checkout -b your-feature-branch
+   ```
+3. Make your changes and commit:
+   ```bash
+   git commit -m "feat: add new feature"
+   ```
+4. Push to your fork and open a pull request
+
+Please ensure tests pass and code style is consistent.
+
+## Support
+
+If you need help, join the interactive chat:
+
+```bash
+blx chat --local blaxel-agent
+```
+
+## License
+
+MIT License. See [LICENSE](LICENSE) for details.
