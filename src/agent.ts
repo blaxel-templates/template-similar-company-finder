@@ -14,7 +14,7 @@ export default async function agent(
 ): Promise<void> {
   const prompt = fs.readFileSync("./src/prompt.md", "utf8");
   const platformTools = await blTools(["exa", "gmail", "qdrant"]);
-  const model = await blModel("gpt-4o-mini");
+  const model = await blModel("sandbox-openai");
   const streamResponse = await createReactAgent({
     llm: await model,
     tools: [...(await platformTools)],
