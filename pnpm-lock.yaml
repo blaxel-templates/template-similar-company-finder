@@ -9,14 +9,14 @@ importers:
   .:
     dependencies:
       '@blaxel/core':
-        specifier: 0.2.46
-        version: 0.2.46(@hey-api/openapi-ts@0.67.0(typescript@5.8.3))
+        specifier: 0.2.47
+        version: 0.2.47(@hey-api/openapi-ts@0.67.0(typescript@5.8.3))
       '@blaxel/langgraph':
-        specifier: 0.2.46
-        version: 0.2.46(@hey-api/openapi-ts@0.67.0(typescript@5.8.3))(@opentelemetry/api@1.9.0)(axios@1.9.0)(handlebars@4.7.8)(openai@4.97.0(ws@8.18.2)(zod@3.24.4))(ws@8.18.2)
+        specifier: 0.2.47
+        version: 0.2.47(@hey-api/openapi-ts@0.67.0(typescript@5.8.3))(@opentelemetry/api@1.9.0)(axios@1.9.0)(handlebars@4.7.8)(openai@4.97.0(ws@8.18.2)(zod@3.24.4))(ws@8.18.2)
       '@blaxel/telemetry':
-        specifier: 0.2.46
-        version: 0.2.46(@hey-api/openapi-ts@0.67.0(typescript@5.8.3))(zod@3.24.4)
+        specifier: 0.2.47
+        version: 0.2.47(@hey-api/openapi-ts@0.67.0(typescript@5.8.3))(zod@3.24.4)
       '@langchain/core':
         specifier: ^0.3.51
         version: 0.3.51(openai@4.97.0(ws@8.18.2)(zod@3.24.4))
@@ -242,16 +242,16 @@ packages:
   '@aws-sdk/util-utf8-browser@3.259.0':
     resolution: {integrity: sha512-UvFa/vR+e19XookZF8RzFZBrw2EUkQWxiBW0yYQAhvk3C+QVGl0H3ouca8LDBlBfQKXwmW3huo/59H8rwb1wJw==}
 
-  '@blaxel/core@0.2.46':
-    resolution: {integrity: sha512-8YqnIsvVPPsryvd2T55k+vjx27Nfo5u3M3YvJKWE89oNedMKrkzBCUh7+hg4kM1yRtuUZxCC4RNsknk93xQhaw==}
+  '@blaxel/core@0.2.47':
+    resolution: {integrity: sha512-RG8skubFdneXFtEcA7rsEPsL9GipKN1zntmQevjoHm+dxPFbEkUA61j5BqSaCxGlTLeuOrsWTfXR9wrokcoTwg==}
     engines: {node: '>=18'}
 
-  '@blaxel/langgraph@0.2.46':
-    resolution: {integrity: sha512-ip93JNaWS96UDZDMXlFYcydwOC0qIPvNt4qXgHIBfLPv+iCvBsDHzHIb/8B7e6jSeOuPxlzP1r/wBanqO1h9tA==}
+  '@blaxel/langgraph@0.2.47':
+    resolution: {integrity: sha512-Sz7yaHqvjnpKj+KPJcm28as9kqVGHTlyrZL8rYE8E+TXM/6lvhTJX40k3IVw6BZTS3G8Ywe4AlC9ZiCeyllURg==}
     engines: {node: '>=18'}
 
-  '@blaxel/telemetry@0.2.46':
-    resolution: {integrity: sha512-Nl7ATR1KS7Gp6vrn/UG6FhAydmMtwrF9aOkWte1DQIgjI0WmbjOR24sGY3078g0BPsyxUCAB0CHLkqsd8tOr8Q==}
+  '@blaxel/telemetry@0.2.47':
+    resolution: {integrity: sha512-k6vN2llwXnpL633OVXWIlvEtcvpabtpinWSD85hfah6kRU6X5pIdCaoPRdgMl2N/ixYdVNLOYB7mcxwQV/S9MA==}
     engines: {node: '>=18'}
 
   '@cfworker/json-schema@4.1.1':
@@ -1220,10 +1220,6 @@ packages:
   events@3.3.0:
     resolution: {integrity: sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==}
     engines: {node: '>=0.8.x'}
-
-  eventsource-parser@3.0.1:
-    resolution: {integrity: sha512-VARTJ9CYeuQYb0pZEPbzi740OWFgpHe7AYJ2WFZVnUDUQp5Dk2yJUgF36YsZ81cOyxT0QxmXD2EQpapAouzWVA==}
-    engines: {node: '>=18.0.0'}
 
   eventsource-parser@3.0.6:
     resolution: {integrity: sha512-Vo1ab+QXPzZ4tCa8SwIHJFaSzy4R6SHf7BY79rFBDf0idraZWAkYrDjDj8uWaSm3S2TK+hJ7/t1CEmZ7jXw+pg==}
@@ -2557,7 +2553,7 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@blaxel/core@0.2.46(@hey-api/openapi-ts@0.67.0(typescript@5.8.3))':
+  '@blaxel/core@0.2.47(@hey-api/openapi-ts@0.67.0(typescript@5.8.3))':
     dependencies:
       '@hey-api/client-fetch': 0.10.0(@hey-api/openapi-ts@0.67.0(typescript@5.8.3))
       '@modelcontextprotocol/sdk': 1.20.2
@@ -2577,9 +2573,9 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@blaxel/langgraph@0.2.46(@hey-api/openapi-ts@0.67.0(typescript@5.8.3))(@opentelemetry/api@1.9.0)(axios@1.9.0)(handlebars@4.7.8)(openai@4.97.0(ws@8.18.2)(zod@3.24.4))(ws@8.18.2)':
+  '@blaxel/langgraph@0.2.47(@hey-api/openapi-ts@0.67.0(typescript@5.8.3))(@opentelemetry/api@1.9.0)(axios@1.9.0)(handlebars@4.7.8)(openai@4.97.0(ws@8.18.2)(zod@3.24.4))(ws@8.18.2)':
     dependencies:
-      '@blaxel/core': 0.2.46(@hey-api/openapi-ts@0.67.0(typescript@5.8.3))
+      '@blaxel/core': 0.2.47(@hey-api/openapi-ts@0.67.0(typescript@5.8.3))
       '@google/generative-ai': 0.24.1
       '@langchain/anthropic': 0.3.20(@langchain/core@0.3.51(openai@4.97.0(ws@8.18.2)(zod@3.24.4)))
       '@langchain/cohere': 0.3.3(@langchain/core@0.3.51(openai@4.97.0(ws@8.18.2)(zod@3.24.4)))
@@ -2618,14 +2614,14 @@ snapshots:
       - utf-8-validate
       - ws
 
-  '@blaxel/telemetry@0.2.46(@hey-api/openapi-ts@0.67.0(typescript@5.8.3))(zod@3.24.4)':
+  '@blaxel/telemetry@0.2.47(@hey-api/openapi-ts@0.67.0(typescript@5.8.3))(zod@3.24.4)':
     dependencies:
       '@ai-sdk/anthropic': 2.0.39(zod@3.24.4)
       '@ai-sdk/cerebras': 1.0.27(zod@3.24.4)
       '@ai-sdk/google': 2.0.25(zod@3.24.4)
       '@ai-sdk/groq': 2.0.26(zod@3.24.4)
       '@ai-sdk/openai': 2.0.58(zod@3.24.4)
-      '@blaxel/core': 0.2.46(@hey-api/openapi-ts@0.67.0(typescript@5.8.3))
+      '@blaxel/core': 0.2.47(@hey-api/openapi-ts@0.67.0(typescript@5.8.3))
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/api-logs': 0.200.0
       '@opentelemetry/exporter-logs-otlp-http': 0.200.0(@opentelemetry/api@1.9.0)
@@ -2880,7 +2876,7 @@ snapshots:
       cors: 2.8.5
       cross-spawn: 7.0.6
       eventsource: 3.0.6
-      eventsource-parser: 3.0.1
+      eventsource-parser: 3.0.6
       express: 5.1.0
       express-rate-limit: 7.5.0(express@5.1.0)
       pkce-challenge: 5.0.0
@@ -3758,13 +3754,11 @@ snapshots:
 
   events@3.3.0: {}
 
-  eventsource-parser@3.0.1: {}
-
   eventsource-parser@3.0.6: {}
 
   eventsource@3.0.6:
     dependencies:
-      eventsource-parser: 3.0.1
+      eventsource-parser: 3.0.6
 
   express-rate-limit@7.5.0(express@5.1.0):
     dependencies:
