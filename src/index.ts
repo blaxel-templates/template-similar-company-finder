@@ -23,8 +23,8 @@ async function main() {
       return reply.status(500).send(error.stack);
     }
   });
-  const port = parseInt(env.BL_SERVER_PORT || "80");
-  const host = env.BL_SERVER_HOST || "0.0.0.0";
+  const port = parseInt(env.PORT || "80");
+  const host = env.HOST || "0.0.0.0";
   try {
     await app.listen({ port, host });
     console.info(`Server is running on port ${host}:${port}`);
